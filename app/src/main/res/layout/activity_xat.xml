@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <!--List view for displaying chat messages-->
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/send_message_layout"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="0dp"
+        android:divider="@null">
+
+    </ListView>
+
+    <!--To type and send the message-->
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimary"
+        android:minHeight="@android:dimen/notification_large_icon_width"
+        android:theme="@style/AppTheme.NoActionBar" />
+
+    <TextView
+        android:id="@+id/estat"
+        android:layout_width="242dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/toolbar"
+        android:layout_alignEnd="@+id/toolbar"
+        android:layout_alignBottom="@+id/toolbar"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="109dp"
+        android:layout_marginBottom="3dp"
+        android:text="Online" />
+
+    <LinearLayout
+        android:id="@+id/send_message_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#ffdddddd"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_galeria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_menu_gallery" />
+
+        <EditText
+            android:id="@+id/et_message"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/ic_menu_send"
+            android:src="@android:drawable/ic_menu_send"
+            android:text="Send" />
+
+    </LinearLayout>
+
+</RelativeLayout>
