@@ -10,7 +10,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.view.WindowManager;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
@@ -89,7 +88,6 @@ public class MainActivity extends Activity {
     public void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
 
-        // Store current position.
         savedInstanceState.putInt("CurrentPosition", vv.getCurrentPosition());
         vv.pause();
     }

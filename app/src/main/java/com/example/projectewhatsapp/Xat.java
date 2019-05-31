@@ -67,10 +67,7 @@ public class Xat extends AppCompatActivity {
                 mimicOtherMessage("", R.drawable.jero2);
                 mimicOtherMessage("", R.drawable.jero3);
                 estat.setText("Connectat");
-                mListView.post(new Runnable(){
-                    public void run() {
-                        mListView.setSelection(mListView.getCount() - 1);
-                    }});
+                tornarAvall();
             }
         }, 6000);
         acabat = 1;
@@ -79,212 +76,184 @@ public class Xat extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String message = mEditTextMessage.getText().toString();
-                sendMessage(message);
-                mEditTextMessage.setText("");
-                mListView.setSelection(mAdapter.getCount() - 1);
-                Handler handler = new Handler();
+                if(!message.equalsIgnoreCase("")){
+                    sendMessage(message);
+                    mEditTextMessage.setText("");
+                    mListView.setSelection(mAdapter.getCount() - 1);
 
-                //1a resposta
-                if(message.equalsIgnoreCase("hola") && acabat == 1){
+                    Handler handler = new Handler();
 
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            estat.setText("Escrivint...");
-                        }
-                    }, 1000);
+                    //1a resposta Aqui jeu Sennedjem, fill de Jabejnet i Tahennu, que va servir amb honor i lleialtat a Ses Alteses Seti i Ramsés, fins al moment de la seva mort
+                    if(message.equalsIgnoreCase("hola") && acabat == 1){
 
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            mimicOtherMessage("Ja fa uns dies que li dono voltes a un tema…" + new String(Character.toChars(0x1F914))+ "No creus que a la sala blava falta un quadre que representi algun dels espais del castell?", 0);
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                estat.setText("Escrivint...");
+                            }
+                        }, 1000);
 
-                            mListView.post(new Runnable(){
-                                public void run() {
-                                    mListView.setSelection(mListView.getCount() - 1);
-                                }});
-                        }
-                    }, 3000);
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                mimicOtherMessage("Ja fa uns dies que li dono voltes a un tema…" + new String(Character.toChars(0x1F914))+ "No creus que a la sala blava falta un quadre que representi algun dels espais del castell?", 0);
 
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            mimicOtherMessage("Tenim trossos de parets encara molt buits i encara no tenim un que representi la nostra casa.", 0);
+                                tornarAvall();
+                            }
+                        }, 3000);
 
-                            mListView.post(new Runnable(){
-                                public void run() {
-                                    mListView.setSelection(mListView.getCount() - 1);
-                                }});
-                        }
-                    }, 5000);
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                mimicOtherMessage("Tenim trossos de parets encara molt buits i encara no tenim un que representi la nostra casa.", 0);
 
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            mimicOtherMessage("Penso que a la mare li faria il·lusió veure el pati de casa ben colorit a la paret.", 0);
+                                tornarAvall();
+                            }
+                        }, 5000);
 
-                            estat.setText("Connectat");
-                            mListView.post(new Runnable(){
-                                public void run() {
-                                    mListView.setSelection(mListView.getCount() - 1);
-                                }});
-                        }
-                    }, 7000);
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                mimicOtherMessage("Penso que a la mare li faria il·lusió veure el pati de casa ben colorit a la paret.", 0);
 
-                    acabat = 2;
+                                estat.setText("Connectat");
+                                tornarAvall();
+                            }
+                        }, 7000);
+
+                        acabat = 2;
+                    }
+
+                    //2a resposta "Senyor Toda, a continuació li envio diferents propostes de pintura, espero que us agradi..!"
+                    if(message.equalsIgnoreCase("hola2") && acabat == 2){
+
+
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                estat.setText("Escrivint...");
+                            }
+                        }, 1000);
+
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                mimicOtherMessage("Quitèria, acabo d’enregistrar un vídeo pel canal de Youtube, mira’l a veure què et sembla:", 0);
+                                mimicOtherMessage("https://youtu.be/crSo3Xwn3yA", 0);
+                                estat.setText("Connectat");
+                                tornarAvall();
+                            }
+                        }, 3000);
+
+                        acabat = 3;
+                    }
+
+                    //3a resposta "El vídeo està genial, Sr. Toda! Ens ha encantat!"
+                    if(message.equalsIgnoreCase("hola3") && acabat == 3){
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                estat.setText("Escrivint...");
+                            }
+                        }, 1000);
+
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                mimicOtherMessage("Quitèria, crec que la mare m’ha tornat a tocar la meva maleta... la pots guardar al seu lloc concret?", 0);
+
+                                tornarAvall();
+                            }
+                        }, 3000);
+
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                mimicOtherMessage("Espero no haver-te de dir on és, ningú es coneix la casa tant com tu.", 0);
+                                estat.setText("Connectat");
+                                tornarAvall();
+                            }
+                        }, 5000);
+
+                        acabat = 4;
+                    }
+
+                    //4a resposta “La maleta ja està al seu lloc, senyor Toda”
+                    if(message.equalsIgnoreCase("hola4") && acabat == 4){
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                estat.setText("Escrivint...");
+                            }
+                        }, 1000);
+
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                mimicOtherMessage("Quitèria, si us plau, fes-me el favor d’anar a la sala dels mosaics, que la meva mare m’ha dit que hi ha hagut un accident.\n" +
+                                        "Espero que no s’hagi fet malbé res.", 0);
+                                estat.setText("Connectat");
+                                tornarAvall();
+                            }
+                        }, 3000);
+
+                        acabat = 5;
+                    }
+
+                    //5a resposta "No es preocupi, Sr, Toda. El mossaic està en perfecte estat!"
+                    if(message.equalsIgnoreCase("hola5") && acabat == 5){
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                estat.setText("Escrivint...");
+                            }
+                        }, 1000);
+
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                mimicOtherMessage("Tens tota la raó, no he de preocupar-me tan de les tasques de casa quan surti de viatge.", 0);
+                                tornarAvall();
+                            }
+                        }, 3000);
+
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                mimicOtherMessage("Però només una coseta més... "+new String(Character.toChars(0x1F601)), 0);
+
+                                tornarAvall();
+                            }
+                        }, 5000);
+
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                mimicOtherMessage("Quin temps fa per allí? M’estàs regant les plantes del pati?", 0);
+                                estat.setText("Connectat");
+                                tornarAvall();
+                            }
+                        }, 7000);
+
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                estat.setText("Escrivint...");
+                            }
+                        }, 10000);
+
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                mimicOtherMessage("Veig que tot està fantàstic! Moltes gràcies per les fotos!", 0);
+                                estat.setText("Connectat");
+                                tornarAvall();
+                            }
+                        }, 11000);
+                    }
                 }
 
-                //2a resposta "Senyor Toda, a continuació li envio diferents propostes de pintura, espero que us agradi..!"
-                if(message.equalsIgnoreCase("hola2") && acabat == 2){
 
-
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            estat.setText("Escrivint...");
-                        }
-                    }, 1000);
-
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            mimicOtherMessage("Quitèria, acabo d’enregistrar un vídeo pel canal de Youtube, mira’l a veure què et sembla:", 0);
-                            mimicOtherMessage("https://youtu.be/crSo3Xwn3yA", 0);
-                            estat.setText("Connectat");
-                            mListView.post(new Runnable(){
-                                public void run() {
-                                    mListView.setSelection(mListView.getCount() - 1);
-                                }});
-                        }
-                    }, 3000);
-
-                    acabat = 3;
-                }
-
-                //3a resposta "El vídeo està genial, Sr. Toda! Ens ha encantat!"
-                if(message.equalsIgnoreCase("hola3") && acabat == 3){
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            estat.setText("Escrivint...");
-                        }
-                    }, 1000);
-
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            mimicOtherMessage("Quitèria, crec que la mare m’ha tornat a tocar la meva maleta... la pots guardar al seu lloc concret?", 0);
-
-                            mListView.post(new Runnable(){
-                                public void run() {
-                                    mListView.setSelection(mListView.getCount() - 1);
-                                }});
-                        }
-                    }, 3000);
-
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            mimicOtherMessage("Espero no haver-te de dir on és, ningú es coneix la casa tant com tu.", 0);
-                            estat.setText("Connectat");
-                            mListView.post(new Runnable(){
-                                public void run() {
-                                    mListView.setSelection(mListView.getCount() - 1);
-                                }});
-                        }
-                    }, 5000);
-
-                    acabat = 4;
-                }
-
-                //4a resposta “La maleta ja està al seu lloc, senyor Toda”
-                if(message.equalsIgnoreCase("hola4") && acabat == 4){
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            estat.setText("Escrivint...");
-                        }
-                    }, 1000);
-
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            mimicOtherMessage("Quitèria, si us plau, fes-me el favor d’anar a la sala dels mosaics, que la meva mare m’ha dit que hi ha hagut un accident.\n" +
-                                    "Espero que no s’hagi fet malbé res.", 0);
-                            estat.setText("Connectat");
-                            mListView.post(new Runnable(){
-                                public void run() {
-                                    mListView.setSelection(mListView.getCount() - 1);
-                                }});
-                        }
-                    }, 3000);
-
-                    acabat = 5;
-                }
-
-                //5a resposta "No es preocupi, Sr, Toda. El mossaic està en perfecte estat!"
-                if(message.equalsIgnoreCase("hola5") && acabat == 5){
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            estat.setText("Escrivint...");
-                        }
-                    }, 1000);
-
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            mimicOtherMessage("Tens tota la raó, no he de preocupar-me tan de les tasques de casa quan surti de viatge.", 0);
-                            mListView.post(new Runnable(){
-                                public void run() {
-                                    mListView.setSelection(mListView.getCount() - 1);
-                                }});
-                        }
-                    }, 3000);
-
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            mimicOtherMessage("Però només una coseta més... "+new String(Character.toChars(0x1F601)), 0);
-
-                            mListView.post(new Runnable(){
-                                public void run() {
-                                    mListView.setSelection(mListView.getCount() - 1);
-                                }});
-                        }
-                    }, 5000);
-
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            mimicOtherMessage("Quin temps fa per allí? M’estàs regant les plantes del pati?", 0);
-                            estat.setText("Connectat");
-                            mListView.post(new Runnable(){
-                                public void run() {
-                                    mListView.setSelection(mListView.getCount() - 1);
-                                }});
-                        }
-                    }, 7000);
-
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            estat.setText("Escrivint...");
-                        }
-                    }, 10000);
-
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            mimicOtherMessage("Veig que tot està fantàstic! Moltes gràcies per les fotos!", 0);
-                            estat.setText("Connectat");
-                            mListView.post(new Runnable(){
-                                public void run() {
-                                    mListView.setSelection(mListView.getCount() - 1);
-                                }});
-                        }
-                    }, 11000);
-                }
 
             }
         });
@@ -302,42 +271,33 @@ public class Xat extends AppCompatActivity {
         startActivityForResult(galeria, PICK_IMAGE);
     }
 
+    private void tornarAvall(){
+        mListView.post(new Runnable(){
+            public void run() {
+                mListView.setSelection(mListView.getCount() - 1);
+            }});
+    }
+
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && requestCode == PICK_IMAGE){
             imageUri = data.getData();
-            ChatMessage chatMessage = new ChatMessage("", 0, true, false, imageUri);
+            ChatMessage chatMessage = new ChatMessage("", 0, true, imageUri);
             mAdapter.add(chatMessage);
-            mListView.post(new Runnable(){
-                public void run() {
-                    mListView.setSelection(mListView.getCount() - 1);
-                }});
+            tornarAvall();
         }
     }
 
     private void sendMessage(String message) {
-        ChatMessage chatMessage = new ChatMessage(message, 0, true, false, null);
+        ChatMessage chatMessage = new ChatMessage(message, 0, true, null);
         mAdapter.add(chatMessage);
-        //respond as Helloworld
-        //mimicOtherMessage("", 0);
     }
 
     private void mimicOtherMessage(String message, int drawable) {
-        ChatMessage chatMessage = new ChatMessage(message, drawable, false, false, null);
+        ChatMessage chatMessage = new ChatMessage(message, drawable, false, null);
         mAdapter.add(chatMessage);
     }
 
-    /*private void sendMessage() {
-        ChatMessage chatMessage = new ChatMessage(null, true, true);
-        mAdapter.add(chatMessage);
-
-        mimicOtherMessage();
-    }
-
-    private void mimicOtherMessage() {
-        ChatMessage chatMessage = new ChatMessage(null, false, true);
-        mAdapter.add(chatMessage);
-    }*/
     @Override
     public void onBackPressed() {
 
