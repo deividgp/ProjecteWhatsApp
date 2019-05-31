@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
 
         try {
 
-            String videoPath = "android.resource://" + getPackageName()+ "/"+R.raw.exemple;
+            String videoPath = "android.resource://" + getPackageName()+ "/"+R.raw.documental;
             Uri uri = Uri.parse(videoPath);
             vv.setVideoURI(uri);
         } catch (Exception e) {
