@@ -81,7 +81,7 @@ public class MainActivity extends Activity {
             public void run() {
                 notiManager.notify(1,noti);
             }
-        }, 2000);
+        }, 180000);
     }
 
     @Override

@@ -1,9 +1,12 @@
 package com.example.projectewhatsapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.support.v4.content.ContextCompat;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +19,9 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.List;
 
 public class ChatMessageAdapter extends ArrayAdapter<ChatMessage> {
@@ -45,7 +51,14 @@ public class ChatMessageAdapter extends ArrayAdapter<ChatMessage> {
             textView.setText(getItem(position).getContent());
 
             if (getItem(position).getImageUri() != null){
-                imageView.setImageURI(getItem(position).getImageUri());
+
+                try {
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), getItem(position).getImageUri());
+                    imageView.setImageBitmap(Bitmap.createScaledBitmap(bitmap, 800, 700, true));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                //imageView.setImageURI(getItem(position).getImageUri());
             }
 
         } else if (viewType == OTHER_MESSAGE) {

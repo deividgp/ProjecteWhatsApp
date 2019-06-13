@@ -84,14 +84,14 @@ public class Xat extends AppCompatActivity {
                     Handler handler = new Handler();
 
                     //1a resposta Aqui jeu Sennedjem, fill de Jabejnet i Tahennu, que va servir amb honor i lleialtat a Ses Alteses Seti i Ramsés, fins al moment de la seva mort
-                    if(message.equalsIgnoreCase("hola") && acabat == 1){
+                    if(message.equalsIgnoreCase("Aquí jeu Sennedjem, fill de Jabejnet i Tahennu, que va servir amb honor i lleialtat a Ses Alteses Seti i Ramsés, fins al moment de la seva mort") && acabat == 1){
 
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 estat.setText("Escrivint...");
                             }
-                        }, 1000);
+                        }, 180000);
 
                         handler.postDelayed(new Runnable() {
                             @Override
@@ -100,7 +100,7 @@ public class Xat extends AppCompatActivity {
 
                                 tornarAvall();
                             }
-                        }, 3000);
+                        }, 183000);
 
                         handler.postDelayed(new Runnable() {
                             @Override
@@ -109,7 +109,7 @@ public class Xat extends AppCompatActivity {
 
                                 tornarAvall();
                             }
-                        }, 5000);
+                        }, 185000);
 
                         handler.postDelayed(new Runnable() {
                             @Override
@@ -119,13 +119,13 @@ public class Xat extends AppCompatActivity {
                                 estat.setText("Connectat");
                                 tornarAvall();
                             }
-                        }, 7000);
+                        }, 187000);
 
                         acabat = 2;
                     }
 
                     //2a resposta "Senyor Toda, a continuació li envio diferents propostes de pintura, espero que us agradi..!"
-                    if(message.equalsIgnoreCase("hola2") && acabat == 2){
+                    if(message.equalsIgnoreCase("Senyor Toda, a continuació li envio diferents propostes de pintura, espero que us agradi!") && acabat == 2){
 
 
                         handler.postDelayed(new Runnable() {
@@ -133,7 +133,7 @@ public class Xat extends AppCompatActivity {
                             public void run() {
                                 estat.setText("Escrivint...");
                             }
-                        }, 1000);
+                        }, 40000);
 
                         handler.postDelayed(new Runnable() {
                             @Override
@@ -143,19 +143,19 @@ public class Xat extends AppCompatActivity {
                                 estat.setText("Connectat");
                                 tornarAvall();
                             }
-                        }, 3000);
+                        }, 43000);
 
                         acabat = 3;
                     }
 
                     //3a resposta "El vídeo està genial, Sr. Toda! Ens ha encantat!"
-                    if(message.equalsIgnoreCase("hola3") && acabat == 3){
+                    if(message.equalsIgnoreCase("El vídeo està genial, Sr. Toda! Ens ha encantat!") && acabat == 3){
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 estat.setText("Escrivint...");
                             }
-                        }, 1000);
+                        }, 40000);
 
                         handler.postDelayed(new Runnable() {
                             @Override
@@ -164,7 +164,7 @@ public class Xat extends AppCompatActivity {
 
                                 tornarAvall();
                             }
-                        }, 3000);
+                        }, 43000);
 
                         handler.postDelayed(new Runnable() {
                             @Override
@@ -173,19 +173,19 @@ public class Xat extends AppCompatActivity {
                                 estat.setText("Connectat");
                                 tornarAvall();
                             }
-                        }, 5000);
+                        }, 45000);
 
                         acabat = 4;
                     }
 
                     //4a resposta “La maleta ja està al seu lloc, senyor Toda”
-                    if(message.equalsIgnoreCase("hola4") && acabat == 4){
+                    if(message.equalsIgnoreCase("La maleta ja està al seu lloc, senyor Toda") && acabat == 4){
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 estat.setText("Escrivint...");
                             }
-                        }, 1000);
+                        }, 40000);
 
                         handler.postDelayed(new Runnable() {
                             @Override
@@ -195,19 +195,19 @@ public class Xat extends AppCompatActivity {
                                 estat.setText("Connectat");
                                 tornarAvall();
                             }
-                        }, 3000);
+                        }, 43000);
 
                         acabat = 5;
                     }
 
-                    //5a resposta "No es preocupi, Sr, Toda. El mossaic està en perfecte estat!"
-                    if(message.equalsIgnoreCase("hola5") && acabat == 5){
+                    //5a resposta "No es preocupi, Sr. Toda. El mossaic està en perfecte estat!"
+                    if(message.equalsIgnoreCase("No es preocupi, Sr. Toda. El mossaic està en perfecte estat!") && acabat == 5){
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 estat.setText("Escrivint...");
                             }
-                        }, 1000);
+                        }, 40000);
 
                         handler.postDelayed(new Runnable() {
                             @Override
@@ -215,7 +215,7 @@ public class Xat extends AppCompatActivity {
                                 mimicOtherMessage("Tens tota la raó, no he de preocupar-me tan de les tasques de casa quan surti de viatge.", 0);
                                 tornarAvall();
                             }
-                        }, 3000);
+                        }, 43000);
 
                         handler.postDelayed(new Runnable() {
                             @Override
@@ -224,7 +224,7 @@ public class Xat extends AppCompatActivity {
 
                                 tornarAvall();
                             }
-                        }, 5000);
+                        }, 45000);
 
                         handler.postDelayed(new Runnable() {
                             @Override
@@ -233,14 +233,14 @@ public class Xat extends AppCompatActivity {
                                 estat.setText("Connectat");
                                 tornarAvall();
                             }
-                        }, 7000);
+                        }, 47000);
 
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 estat.setText("Escrivint...");
                             }
-                        }, 10000);
+                        }, 50000);
 
                         handler.postDelayed(new Runnable() {
                             @Override
@@ -249,7 +249,7 @@ public class Xat extends AppCompatActivity {
                                 estat.setText("Connectat");
                                 tornarAvall();
                             }
-                        }, 11000);
+                        }, 51000);
                     }
                 }
 
